@@ -1,0 +1,128 @@
+using System;
+
+namespace HomeWork
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //2 (Шахматная доска
+            //Console.WriteLine("Введите размер доски");
+            //int n = int.Parse(Console.ReadLine());
+            //int[,] chess = new int[n,n];
+
+            //for (int i = 0; i < n; i++)
+            //{
+            //    Console.WriteLine();
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        chess[i, j] = (i + j) % 2 == 0 ? 0 : 1;      // 0- белый 1- черный
+            //        Console.Write(chess[i, j]);
+            //    }
+            //}
+
+            //2.1
+            //Console.WriteLine();
+            //Console.WriteLine("Кол-во черных ячеек шахматной доски = "+n * n / 2);
+
+            ////2.2
+            //Console.WriteLine("Введите номер ячейки n :");
+            //int __n = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите номер ячейки m :");
+            //int __m = int.Parse(Console.ReadLine());
+            //if (chess[__n, __m] == 0) Console.WriteLine("Белая");
+            //else Console.WriteLine("Черная");
+
+            //Console.WriteLine();
+            //Console.WriteLine("Введите номер ячейки k1 :");
+            //int k1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите номер ячейки km1 :");
+            //int m1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите номер ячейки k2 :");
+            //int k2 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите номер ячейки m2 :");
+            //int m2 = int.Parse(Console.ReadLine());
+            //2.3
+            //if (chess[k1, m1] == chess[k2, m2])
+            //{
+            //    if (chess[k1, m1] == 0)
+            //    {
+            //        Console.WriteLine("Да, цвет белый");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Да, цвет черный");
+            //    }
+            //}
+            //else Console.WriteLine("Нет");
+
+            //пешка
+            //Console.WriteLine("Белая фигура стоит на ячейке {0} {1} ; Черная фигура стоит на ячейке {2} {3}; Ходят черные(Пешка):  ", k1, m1,k2,m2);
+            //if ((k2 - 1==k1 && m2 - 1 == m1) || (k2 - 1 == k1 && m2 + 1 == m1))
+            //{
+            //    Console.WriteLine("Белая фигура находится под ударом пешки"); //  Пример входных данных 8 4 4 5 5 
+            //}
+            //else 
+            //{
+            //    Console.WriteLine("Белая фигура в безопасности");
+            //}
+
+            //ладья
+            //Console.WriteLine("Белая фигура стоит на ячейке {0} {1} ; Черная фигура стоит на ячейке {2} {3}; Ходят черные(Ладья):  ", k1, m1, k2, m2);
+            //if ((k2 == k1) || (m2 == m1))
+            //{
+            //    Console.WriteLine("Белая фигура находится под ударом ладьи"); //  Пример входных данных 8 1 9 1 1 
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Белая фигура в безопасности");
+            //}
+
+            //2.2
+            //Console.WriteLine("Введите дату в формате dd.MM.yyyy:");
+            //DateTime dt = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Дней прошло с начала года:" + dt.DayOfYear);
+            //DateTime now = DateTime.Now;
+            //int nextYear = now.Year + 1;
+            //DateTime nextNewYear = new DateTime(nextYear, 1, 1);
+            //nextNewYear = new DateTime(nextNewYear.Ticks - 1);
+            //int days = nextNewYear.DayOfYear - now.DayOfYear;
+            //Console.WriteLine(">Дней осталось до конца года:" + days);
+            //Console.WriteLine(">Дата предыдущего дня:" + dt.AddDays(-1).ToShortDateString());
+            //Console.WriteLine(">Дата следующего дня:" + dt.AddDays(+1).ToShortDateString());
+
+            //2.3
+            //int x, y, z, n, a, st1, st2, st3;  
+            //for (x = 1; x < 10; x++) 
+            //{
+            //    for (y = 0; y < 10; y++)
+            //    {
+            //        for (z = 0; z < 10; z++)
+            //        {
+            //            for (n = 1; n < 10; n++)
+            //            {
+            //                int n1;
+            //                a = 100 * x + 10 * y + z; 
+            //                st1 = 1; st2 = 1; st3 = 1;
+            //                for (n1 = 1; n1 <= n; n1++)
+            //                { st1 = st1 * y; st2 = st2 * z; st3 = st3 * x; }           
+            //                if (a == st1 + st2 + st3) 
+            //                {
+            //                    Console.WriteLine(a);
+            //                } 
+            //            }
+            //        }
+            //    }
+            //}
+
+            //2.4    стремное задание..
+            Console.WriteLine("Введите сторону a = ");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите сторону b = ");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Минимум квадратов = {0}", (a * b)/2);
+            Console.WriteLine("Максимум квадратов = {0}", (a * b));
+
+        }
+    }
+}
