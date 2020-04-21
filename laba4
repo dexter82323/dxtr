@@ -1,0 +1,193 @@
+using System;
+
+namespace _4_laba_c
+{
+    class Student
+    {
+        static string name = " ";
+        static int sumb = 0;
+        static Random rnd = new Random(0);
+        public  void SetValue(string name1)
+        {
+            name = name1;
+            sumb = rnd.Next(0, 100);
+        }
+        public void PrintStudent()
+        {
+            Console.WriteLine("Имя студента - {0} . Кол-во баллов - {1} ", name,sumb);
+        }
+        public static Student[] InitAr(Student[] Stud)
+        {
+            for (int i = 0; i < Stud.Length; i++)
+            {
+                Stud[i] = new Student();
+            }
+            return Stud;
+        }
+    }
+    class Myvector
+    {
+        static public Random rnd = new Random();
+        public static void CreateVector(int[] Arr, int Length)
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                Arr[i] = rnd.Next(1, 1000);
+                Console.Write(Arr[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        public static void SumArr (int []a, int []b)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] += b[i];
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        public static void SubtractArr(int[] a, int[] b)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] -= b[i];
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        public static void Mult(int[] a, int temp)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] *= temp;
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        public static void Div(int[] a, int temp)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] /= temp;
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+        public static void PrintIndex(int[] a , int index)
+        {
+            for (int i= 0; i < a.Length; i++)
+            {
+                if (i == index) Console.WriteLine(a[i]);
+            }
+        }
+        public static void Print(int[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.Write(a[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+   class Program
+    {
+        static void Print(Object A)
+        {
+            int[] arr = A as int[];
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                Console.WriteLine(arr[i]);
+            } 
+        }
+            static void Main(string[] args)
+        {
+            ////Задание 2
+            ////2.1
+            //int[] array1 = { 1, 2, 3, 4, 5 };
+            //int[] array2 = { 6, 7, 8, 9, 0 };
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write(array2[i] + " ");
+            //}
+            //Console.WriteLine();
+            //Array.Copy(array1, 0, array2, 0, 5);     // 2 параметр с какого индекса копируем 1 массив , 4 параметр с какогда индекска копируем во 2 массив , 5 параметр сколько эл-ов копируем  
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write(array2[i] + " ");
+            //}
+            //Console.WriteLine();
+            ////2.2
+            //Console.WriteLine(Array.IndexOf(array1, 4));   // 2 параметр число, индекс которого мы ищем              функция определяет на каком индексе первый раз встречается число 
+            //Console.WriteLine(Array.LastIndexOf(array1, 4));   // 2 параметр число, индекс которого мы ищем             последний раз встречается
+            //Console.WriteLine();
+            ////2.3
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write(array1[i] + " ");
+            //}
+            //Console.WriteLine();
+            //Array.Reverse(array1);        //переставляет элементы массива
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write(array1[i] + " ");
+            //}
+            //Console.WriteLine();
+            ////2.4
+            //Array.Sort(array1); //сортирует массив по возрастанию 
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write(array1[i] + " ");
+            //}
+            //Console.WriteLine();
+            ////2.5
+            //Console.WriteLine(Array.BinarySearch(array1, 2));
+
+            //Задание 3 
+            //3.1
+            //int[] array = new int[10];
+            //Console.WriteLine(array.Length);
+            //Console.WriteLine(array.GetLength(0));   // разнинцы с одномерным массивом нет 
+
+            //int[,] array2 = new int[10, 10];
+            //Console.WriteLine(array2.Length);
+            //Console.WriteLine(array2.GetLength(0));   // разница появляется когда массив многомерный. Length показывает размер всего массива . GetLength возращает длину заданного массива
+            //3.2
+            //int[] A = { 1, 2, 3,4,5,6,7,8,9 };
+            //Print(A);
+
+            //Задание 4 
+            //Student[] students = new Student[3];
+            //Student.InitAr(students);
+            ////students[0] = new Student();
+            //students[0].SetValue("Вася");
+            //students[0].PrintStudent();
+            //students[1].SetValue("Оля");
+            //students[1].PrintStudent();
+            //students[2].SetValue("Петя");
+            //students[2].PrintStudent();
+
+            //Задание 6 
+            int length = 5;
+            int[] array = new int[length];
+            Console.WriteLine("Массив 1");
+            Myvector.CreateVector(array, length);
+            int length2 = 5;
+            int[] array2 = new int[length];
+            Console.WriteLine("Массив 2");
+            Myvector.CreateVector(array2, length2);
+            Console.WriteLine("Сумма массивов");
+            Myvector.SumArr(array, array2);
+            Console.WriteLine("Разность массивов");
+            Myvector.SubtractArr(array, array2);
+            Console.WriteLine("Умножение массивов");
+            Myvector.Mult(array, 5);
+            Console.WriteLine("Деление массивов");
+            Myvector.Div(array, 5);
+            Console.WriteLine("Поиск по индексу");
+            Myvector.PrintIndex(array, 2);
+            Console.WriteLine("Вывод всего массива");
+            Myvector.Print(array);
+        }
+
+    }
+}
