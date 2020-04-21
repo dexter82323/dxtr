@@ -1,0 +1,181 @@
+using System;
+using System.Text;
+
+namespace _5_laba_c
+{
+    class Program
+    {
+        static void SplitJoin(string Str)
+        {
+             string[] SimpleSentences, Words;
+                SimpleSentences= Str.Split(',');    
+            for(int i = 0; i < SimpleSentences.Length; i++)
+            {
+                Words = SimpleSentences[i].Split(' ');
+                
+                for (int j = 0; j < Words.Length; j++)
+                {
+                    Console.WriteLine(Words[j]);
+                }
+                Console.WriteLine(SimpleSentences[i]);
+            }
+            string NewStr = String.Join(',', SimpleSentences);
+            Console.WriteLine(NewStr);
+        }
+
+        static void PrintCharAr(char[] ch)
+        {
+            for (int i = 0; i < ch.Length; i++)
+            {
+                Console.Write(ch[i]);
+            }
+        }
+        static String CharArrayToString(char[] ar)
+        {
+            string str = "";
+            for(int i = 0; i < ar.Length; i++)
+            {
+                str += ar[i];
+            }
+            return str;
+        }
+
+        static void TestIndexSym(char[] s1, char[] s2)
+        {
+            int k = 0;
+            for(int i = 0; i < s1.Length; i++)
+            {
+               for (int j=0; j < s2.Length; j++)
+                {
+                    if (s1[i] == s2[j])
+                    {
+                        Console.WriteLine(i);
+                        return;
+                    }
+                
+                }
+            }
+          
+        }
+        static void Main(string[] args)
+        {
+            //string str1 = "Строка1";
+            //string str2 = new string('s', 5);
+            //char[] charray = { 't', 'e', 's', 't' };
+            //string str3 = new string(charray);
+            //Console.WriteLine("Строка 1 - {0},Строка 2 - {1},Строка 3 - {2}", str1, str2, str3);
+            ////Задание 1.3
+            //str1 = str2;
+            //str2 = str3;
+            //Console.WriteLine("Строка 1 - {0},Строка 2 - {1},Строка 3 - {2}", str1, str2, str3);
+            //if (str2 == str3)
+            //{
+            //    Console.WriteLine("Equal");
+            //}
+            //string str4 = str1 + " " + str2;
+            //Console.WriteLine(str4);
+            //Console.WriteLine(str2[0]);
+            ////Задание 1.4.1 
+            //string newStr = "asdadasd(1ый Комментарий 1212312312 )sdasdasdasd(2ой Комментарий фывфывфв)";
+            //string com = "";
+            //for (int i = 0; i < newStr.Length; i++)
+            //{
+            //    if (newStr[i] == '(')
+            //    {
+            //        for (int j = i + 1; newStr[j] != ')'; j++)
+            //        {
+            //            com += newStr[j];
+            //        }
+            //    }
+            //}
+            //Console.WriteLine(com);
+            ////Задание 1.4.2
+            //string newStr2 = "adsasasdasd1student2sadasdasd";
+            //string WoStudent = "";
+
+            //for (int i = 0; i < newStr2.Length; i++)
+            //{
+            //    if (newStr2[i] == 's' && newStr2[i + 1] == 't' && newStr2[i + 2] == 'u' && newStr2[i + 3] == 'd' && newStr2[i + 4] == 'e' && newStr2[i + 5] == 'n' && newStr2[i + 6] == 't')
+            //    {
+            //        i += 6;
+            //    }
+            //    else WoStudent += newStr2[i];
+            //}
+            //Console.WriteLine(WoStudent);
+
+            //Задание 2 
+            //int num = int.Parse(Console.ReadLine());
+            //string[] arr1 = { "ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять" };
+            //string[] arr2 = { "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать" };
+            //string[] arr3 = { "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто" };
+            //string[] arr4 = { "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот" };
+            //if (num >= 0 && num <= 9)
+            //{
+            //    Console.WriteLine(arr1[num]);
+            //}
+            //else
+            //    if (num >= 10 && num <= 19)
+            //{
+            //    Console.WriteLine(arr2[num % 10]);
+            //}
+            //else
+            //    if (num >= 20 && num <= 90 && num % 10 == 0)
+            //{
+            //    Console.WriteLine(arr3[num / 10 - 2]);
+            //}
+            //else
+            //    if (num > 20 && num <= 90)
+            //{
+            //    Console.WriteLine(arr3[num / 10 - 2] + " " + arr1[num % 10]);
+            //}
+            //else
+            //    if (num >= 100 && num <= 900 && num % 100 == 0)
+            //{
+            //    Console.WriteLine(arr4[num / 100 - 1]);
+            //}
+            //else
+            //    if (num >= 100 && num <= 991)
+            //{
+            //    Console.Write(arr4[num / 100 - 1] + " ");
+            //    int num2 = num % 100;
+
+            //    if (num2 >= 10 && num2 <= 19)
+            //    {
+            //        Console.Write(arr2[num2 % 10] + " ");
+            //    }
+            //    else
+            //        if (num2 >= 21 && num2 <= 99)
+            //    {
+            //        Console.Write(arr3[num2 / 10 - 2] + " " + arr1[num2 % 10]);
+            //    }
+            //}
+
+            //Задание 3
+            //string str = "Предложение номер один,Предложение номер два,Предложение номер три";
+            //Console.WriteLine(str);
+            //SplitJoin(str);
+
+            //Задание 4 
+            //StringBuilder str = new StringBuilder("Строка");
+            //str.Append("asdasdas");
+            //str.Insert(2, "12313");
+            //Console.WriteLine(str);
+
+            ////Задание 5 
+            //Console.WriteLine("Емкость строки до изменений: {0}", str.Capacity);
+            //Console.WriteLine("Емкость строки после изменений: {0}", str.Capacity = 25);
+            //Console.WriteLine("Емкость строки: {0}", str.MaxCapacity);
+            //str.EnsureCapacity(30);
+            //Console.WriteLine("Емкость строки : {0}", str.Capacity);
+
+            //Задание 6
+            char[] ch = { 'a', 'b', 'c', 'd', 'e', 'f' };
+            PrintCharAr(ch);
+            Console.WriteLine();
+            string str = CharArrayToString(ch);
+            Console.WriteLine(str);
+            char[] ch2 = { 'b', 'c' };
+            TestIndexSym(ch, ch2);
+        }
+    }
+}
