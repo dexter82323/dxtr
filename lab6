@@ -1,0 +1,121 @@
+using System;
+
+namespace _6_lab_c
+{
+    class Example
+    {
+        public int x;
+        public int y;
+        public Example(int x)
+        {
+            this.x = x;
+        }
+        static public void Sqr(double a, double b)
+        {
+            a = Math.Pow(a, 2);
+            b = Math.Pow(b, 2);
+            Console.WriteLine("В методе Sqr. a = {0}\tb = {1}", a, b);
+        }
+        static public void Init(Example a)
+        {
+            a.x = 1;
+            a.y = 1;
+            Console.WriteLine("x = {0} y = {1} ", a.x, a.y);
+        }
+        static public void Init()
+        {
+            Example a = new Example(0);
+            a.x = 2;
+            a.y = 2;
+            Console.WriteLine("x = {0} y = {1} ", a.x, a.y);
+        }
+
+    }
+    class Example2
+    {
+        public int x;
+        public int y;
+
+        static public void Sqr(ref double a, ref double b)
+        {
+            a = Math.Pow(a, 2);
+            b = Math.Pow(b, 2);
+            Console.WriteLine("В методе Sqr. a = {0}\tb = {1}", a, b);
+        }
+        static public void Init(ref Example a)
+        {
+            a.x = 1;
+            a.y = 1;
+            Console.WriteLine("x = {0} y = {1} ", a.x, a.y);
+        }
+    }
+
+    class Example3
+    {
+        static public void Info( double value,out int sign,out bool IsInteger,out double AbsNum, out double sqr)
+        {
+            sign = Math.Sign(value);
+            IsInteger = value % 1 == 0 ? true : false;
+            AbsNum = Math.Abs(value);
+            sqr = value * value;
+            Console.WriteLine("Число - {0} , Знак - {1}, Целочисленность - {2}, Модуль числа - {3}, Квадрат числа - {4}", value, sign, IsInteger, AbsNum, sqr);
+
+        }
+    }
+    class Example4
+    {
+       static public int Average(params int[] arr)
+        {
+            int av = 0;
+            foreach (int elem in arr)
+                av += elem;
+            return (av / arr.Length);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a= 1.2;
+            double b = 3.5;
+            //Задание 1 
+            //Console.WriteLine("a = {0}\tb = {1}", a, b);
+            //Example.Sqr(a, b);
+            //Console.WriteLine("a = {0}\tb = {1}", a, b);
+            //Example.Sqr(a * 2, b * 2);
+            //Console.WriteLine("a = {0}\tb = {1}", a, b);
+            //Example ex = new Example(0);
+            //Console.WriteLine("x = {0} y = {1} ", ex.x, ex.y);
+            //Example.Init(ex);
+            //Console.WriteLine("x = {0} y = {1} ", ex.x, ex.y);
+            //Example.Init();
+            //Задание 2
+            //Console.WriteLine("a = {0}\tb = {1}", a, b);
+            //Example2.Sqr(ref a, ref b);
+            //Console.WriteLine("a = {0}\tb = {1}", a, b);
+            //Example ex = new Example(0);
+            //Console.WriteLine("x = {0} y = {1} ", ex.x, ex.y);
+            //Example.Init(ex);
+            //Console.WriteLine("x = {0} y = {1} ", ex.x, ex.y);
+            //Задание 3
+            //double value = 42;
+            //double value2 = -12.67;
+            //double value3;
+            //int i = 123;
+            //Example3.Info(value, out int sign, out bool IsInteger, out double AbsNum, out double sqr);
+            //Example3.Info(value2, out int sign2, out bool IsInteger2, out double AbsNum2, out double sqr2);
+            //Example3.Info(i, out int sign3, out bool IsInteger3, out double AbsNum3, out double sqr3);
+            //Задание 4 
+
+            int[] arr = { 10, 30, 50, 100 };
+            Console.WriteLine(Example4.Average(arr));
+            short z = 1, e = 12;
+            byte v = 107;
+            Console.WriteLine(Example4.Average(z, e, v));
+            //Console.WriteLine(Example4.Average());
+
+
+        }
+    }
+}
