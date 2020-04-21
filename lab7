@@ -1,0 +1,188 @@
+using System;
+
+namespace _7_lab_c
+{
+    class Person
+    {
+        private string fam=" ", status, salary,health = "Здоровый";
+        private int age=0;
+        public string Fam
+        {
+            set { if (fam == " ") fam = value; }
+            get { return (fam); }
+        }
+        public string Status
+        {
+            get { return status; }
+        }
+        public int Age
+        {
+            set 
+            { 
+                age = value;
+                if (age < 18) status = "Школьник";
+                else status = "Уважаемый человек";
+            }
+            get { return age; }
+        }
+        public string Salary
+        {
+            set { salary = value; }
+        }
+            
+        public void show()
+        {
+            Console.WriteLine("Фамилия - {0}, Статус - {1}, Зарплата - {2}, Возраст - {3}, Здоровье - {4}", fam, status, salary, age, health);
+        }
+
+    }
+
+    class Rational
+    {
+        private int m, n;
+        public Rational(int m1, int n1)
+        {
+            if (n1 == 0)
+            {
+                n = 0;
+                m = 1;
+            }
+            m = m1;
+            n = n1;
+        }
+        private Rational(int a, int b, string t)
+        {
+            m = a; n = b;
+        }
+        static public readonly Rational One,Zero;
+        static Rational()
+        {
+            One = new Rational(1, 1);
+            Zero = new Rational(0, 0);
+        }
+        static public Rational Nod(ref Rational rat)
+        {
+            int a = rat.n;
+            int b = rat.m;
+            for (int i = a; i > 0; i--)
+            {
+                if (a % i == 0)
+                {
+                    if (b % i == 0)
+                    {
+                        a /= i;
+                        b /= i;
+                        break;
+                    }
+                }
+            }
+            rat.n = a;
+            rat.m = b;
+            return rat;
+        }     
+        
+        public static Rational operator +(Rational r1, Rational r2)
+        {
+            return new Rational
+                (
+                    (int)(r1.m * r2.n + r2.m * r1.n),
+                    (int)r1.n * r2.n
+                );
+        }
+
+        public static Rational operator *(Rational r1, Rational r2)
+        {
+            return new Rational
+                (
+                    (int)(r1.m * r2.m),
+                     (int)(r1.n * r2.n)
+                );
+        }
+
+        public static Rational operator -(Rational r1, Rational r2)
+        {
+            return new Rational
+               (
+                   (int)(r1.m * r2.n - r2.m * r1.n),
+                   (int)r1.n * r2.n
+               );
+        }
+
+        public static Rational operator /(Rational r1, Rational r2)
+        {
+            return r1.m * r2.m < 0
+                ? new Rational((int)-r2.m, (int)-r2.n)
+                : new Rational((int)r2.m, (int)r2.n);
+        }
+
+        public static bool operator ==(Rational r1, Rational r2)
+        {
+            return (r1 - r2).m == 0;
+        }
+
+        public static bool operator !=(Rational r1, Rational r2)
+        {
+            return !(r1 == r2);
+        }
+
+        public static bool operator >(Rational r1, Rational r2)
+        {
+            return (r1 - r2).m > 0;
+        }
+        public static bool operator <(Rational r1, Rational r2)
+        {
+            return (r1 - r2).m < 0;
+        }
+
+
+        public void Show()
+        {
+            Console.WriteLine(m + "/" + n);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Задание 1 
+            //Person Kolya = new Person();
+            //Kolya.Fam = "Петров";
+            //Kolya.Fam = "Иванов";
+            //Kolya.Salary = "1234";
+            ////Console.WriteLine(Kolya.Salary);
+            //Kolya.Age = 18;
+            ////Console.WriteLine(Kolya.Age);
+            //Kolya.show();
+
+            //Задание 2
+
+            //Rational n = new Rational(1, 10);
+            //n.Show();
+            //Rational.Nod(ref n);
+            //n.Show();
+            ////Задание 3 
+
+            //Rational n2 = n + n;
+            //Rational.Nod(ref n2);
+            //n2.Show();
+            //Rational n3 = n * n;
+            //Rational.Nod(ref n3);
+            //n3.Show();
+            //Rational n4 = n2 - n;
+            //Rational.Nod(ref n4);
+            //n4.Show();
+            //Rational n5 = n3 / n;
+            //Rational.Nod(ref n5);
+            //n5.Show();
+            //Задание 4 
+            Rational n = new Rational(1, 10);
+            Rational n2 = new Rational(2, 10);
+            Console.WriteLine(n2 == n);
+            Console.WriteLine(n2 != n);
+            Console.WriteLine(n2 > n);
+            Console.WriteLine(n2 < n);
+
+        }
+    }
+}
